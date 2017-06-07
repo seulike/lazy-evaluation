@@ -57,3 +57,4 @@ class Lazy {
         return result;
     }
 }
+module.exports = Lazy;
