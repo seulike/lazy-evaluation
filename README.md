@@ -9,7 +9,16 @@ npm install ....
 这类似于设计模式中的职责链模式。lazy-evaluation使用职责链模式来将一系列计算方法串联起来。lazy.js在具体计算的时候，计算过程的走向如同栈式。
 而lazy-evaluation则是串行的,实现更简单直接。
 ### 使用
+目前支持计算方法：
+1. map，映射函数。
+2. filter，过滤函数。
+3. take，结果数量。
+必须以exe()结尾才能执行计算。
+
+示例：
 ```
 var arr = [10, 23, 34, 35, 72];
 var result = new Lazy(arr).map(item => item * 2).filter(item => item > 60).map(item => item * 2).take(1).exe();
+```
+
 
