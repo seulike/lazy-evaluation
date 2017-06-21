@@ -3,7 +3,7 @@
 a simple lazy-evaluation implementation,using design pattern,Chain of Responsibility.
 # Usage
 ### Installation
-npm install ....
+npm install lazy-evaluation
 ### 简介  
 [lazy.js](http://danieltao.com/lazy.js/)实现了对计算的惰性求值。lazy.js的实现核心是Sequence对象。通过Sequence将一系列计算方法链接起来。
 这类似于设计模式中的职责链模式。lazy-evaluation使用职责链模式来将一系列计算方法串联起来。lazy.js在具体计算的时候，计算过程的走向如同栈式。
