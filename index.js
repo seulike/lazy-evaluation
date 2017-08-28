@@ -12,20 +12,19 @@ class Lazy {
                 var result = self.apply(this, arguments);
                 //used for filter function to filter some item
                 if (result === 'stop') return 'stop';
-                //empty function will return undefined
-                //filter function
-                if (typeof result === 'boolean') return fn.apply(this, arguments);
+                //empty function will return arguments[0] 
                 return fn.call(this, result);
             }
         };
         return this;
     }
     map(fn) {
-        if (typeof fn === 'function') this.fin = this.fin.after(fn);
+        if (!(typeof fn === 'function')) throw new Error('Sorry,parameter should be a function.');
+        this.fin = this.fin.after(fn);
         return this;
     }
     filter(fn) {
-        if (!(typeof fn === 'function')) return this;
+        if (!(typeof fn === 'function')) throw new Error('Sorry,parameter should be a function.');
         var self = this;
         function tmp() {
             if (!fn.apply(self, arguments)) return 'stop';
@@ -35,9 +34,9 @@ class Lazy {
         return this;
     }
     take(filterNum) {
-        if (typeof filterNum === 'number'
-            && filterNum > 0
-            && filterNum <= this.filterNum)
+        if ((typeof filterNum === 'number')
+            && (filterNum > 0)
+            && (filterNum <= this.filterNum))
             this.filterNum = filterNum;
         return this;
     }
